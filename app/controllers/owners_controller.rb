@@ -34,29 +34,24 @@ class OwnersController < ApplicationController
   end
 
   def edit
-    @owner = Owner.find_by(params[:id])
+    @owner = Owner.find(params[:id])
   end
 
   def destroy
-    p = params[:id]
-    message = nil
-    success_message = ""
-    error_message = ''
-    @onr = Owner.find(r)
-    if @onr && @onr.persisted? && p
-      #destroy all my cats
-      @onr.cats.each do |cat|
+
+    @owner = Owner.find(params[:id])
+    if @owner.persisted? 
+      @owner.cats.each do |cat|
         cat.destroy
       end
-      if @onr.destroy
-        success_message = "owner destroyed"
-        flash[:success] = success_message
+      if @owner.destroy
+
+        flash[:success] = "Owner destroyed."
         redirect_to owners_path
       end
     else
-      error_message = "owner not destroyed because something happened with #{params[:id]}"
-      flash[:error] = error_message
-      # redirect_to owners_path
+      flash[:error] = "owner not destroyed because something happened with #{@owner.first_name}"
+       redirect_to owners_path
     end
   end
 
