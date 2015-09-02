@@ -38,14 +38,12 @@ class OwnersController < ApplicationController
   end
 
   def destroy
-
     @owner = Owner.find(params[:id])
-    if @owner.persisted? 
+    if @owner.persisted?
       @owner.cats.each do |cat|
         cat.destroy
       end
       if @owner.destroy
-
         flash[:success] = "Owner destroyed."
         redirect_to owners_path
       end

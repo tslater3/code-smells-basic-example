@@ -2,24 +2,18 @@
 
 <h1>Listing Cats</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cats.each do |cat| %>
-      <tr>
-        <td><%= link_to 'Show', cat %></td>
-        <td><%= link_to 'Edit', edit_cat_path(cat) %></td>
-        <td><%= link_to 'Destroy', cat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
+<ul>
+  <% @cats.each do |cat| %>
+  <li>
+    <p><%= cat.name %></p>
+    <p><%= cat.age %></p>
+    <p><%= cat.fur_color %></p>
+    <p><%= cat.eye_color %></p>
+    <p><%= cat.food_type %></p>
+  </li>
+    <%= link_to 'Show', cat %>
+    <%= link_to 'Edit', edit_cat_path(cat) %>
+    <%= link_to 'Destroy', cat, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</ul>
 <%= link_to 'New Cat', new_cat_path %>
