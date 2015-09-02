@@ -31,7 +31,7 @@ class OwnersController < ApplicationController
   end
 
   def edit
-    @owner = Owner.find_by(name: params[:name])
+    @owner = Owner.find_by(params[:id])
   end
 
   def destroy
