@@ -26,9 +26,9 @@ class OwnersController < ApplicationController
   def create
     @owner = Owner.new(owner_params)
     if @owner.save
-      redirect_to owners_path, success: "Owner with name #{params[:owner][:first_name]} #{params[:owner][:last_name]} was created successfully"
+      redirect_to owners_path, success: "Owner with name #{@owner.first_name} #{@owner.last_name} was created successfully"
     else
-      redirect_to owners_path, success: "Owner with name #{params[:owner][:first_neme]} #{params[:owner][:last_name]} was not created successfully"
+      redirect_to owners_path, success: "Owner with name #{@owner.first_name} #{@owner.last_name} was not created successfully"
     end
   end
 
