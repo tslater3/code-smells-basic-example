@@ -7,7 +7,7 @@ class CatsController < ApplicationController
   end
 
   def show
-    @cat = Cat.find(perams[:id])
+    @cat = Cat.find(params[:id])
   end
 
   def edit
@@ -26,7 +26,8 @@ class CatsController < ApplicationController
     end
   end
 
-  def new_cat
+  def new
+    # @owner = Owner.find(params[:id])
     @cat = Cat.new
   end
 
@@ -43,7 +44,7 @@ class CatsController < ApplicationController
 
   def create
     @cat = Cat.new(cat_params)
-    if @cat && @cat.save
+    if @cat.save
       success_message = "cat was successfully saved."
       flash[:success] = success_message
       redirect_to cats_path
@@ -56,6 +57,6 @@ class CatsController < ApplicationController
 
   private
     def cat_params
-      params.require(:cats).permit(:name, :age, :fur_color, :eye_color, :food_types)
+      params.require(:cat).permit(:name, :age, :fur_color, :eye_color, :food_type, :owner_id)
     end
 end

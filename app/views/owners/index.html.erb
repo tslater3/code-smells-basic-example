@@ -10,8 +10,9 @@
     <p>Age: <%= owner.age %></p>
     <p>Race: <%= owner.race %></p>
     <p>Location: <%= owner.location %></p>
+    <p>Id Number: <%= owner.id %>
   </li>
-    <%= link_to 'Show', owner %>
+    <%= link_to 'Show and Add a Cat', owner %>
     <%= link_to 'Edit', edit_owner_path(owner) %>
     <%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
