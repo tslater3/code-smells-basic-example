@@ -4,7 +4,4 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :kill_me
 
-  def kill_me
-    raise "this is killing me"
-  end
 end
