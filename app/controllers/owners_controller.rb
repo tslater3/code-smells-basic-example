@@ -1,6 +1,6 @@
 class OwnersController < ApplicationController
   def index
-    @o = Owners.all.sort_by{|onr| onr.first_name }
+    @owners = Owner.all.sort_by{|onr| onr.first_name }
   end
 
   def show
@@ -31,7 +31,7 @@ class OwnersController < ApplicationController
       redirect_to owners_path, success: "Owner with name #{params[:owner][:first_neme]} #{params[:owner][:last_name]} was not created successfully"
     end
   end
-  
+
   def edit
     @owner = Owner.find_by(name: params[:name])
   end
@@ -48,7 +48,7 @@ class OwnersController < ApplicationController
         cat.destroy
       end
       if @onr.destroy
-        success_message = "owner destroyed" 
+        success_message = "owner destroyed"
         flash[:success] = success_message
         redirect_to owners_path
       end
@@ -56,7 +56,7 @@ class OwnersController < ApplicationController
       error_message = "owner not destroyed because something happened with #{params[:id]}"
       flash[:error] = error_message
       # redirect_to owners_path
-    end 
+    end
   end
 
   # this method takes in an owner and sets its first cats age to 23
