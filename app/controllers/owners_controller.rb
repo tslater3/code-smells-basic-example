@@ -24,7 +24,7 @@ class OwnersController < ApplicationController
   end
 
   def create
-    @owner = Owner.new(owner_perams)
+    @owner = Owner.new(owner_params)
     if @owner.save
       redirect_to owners_path, success: "Owner with name #{params[:owner][:first_name]} #{params[:owner][:last_name]} was created successfully"
     else
@@ -77,7 +77,7 @@ class OwnersController < ApplicationController
   end
 
   private
-    def op
+    def owner_params
       if params[:owner]
         params.require(:owner).permit(:first_name, :last_name, :age, :race, :location)
       end
