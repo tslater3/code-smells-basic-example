@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<p>First Name:<%= @owner.first_name %></p>
+<p>Last Name: <%= @owner.last_name %></p>
+<p>Age: <%= @owner.age %></p>
+<p>Race: <%= @owner.race %></p>
+<p>Location: <%= @owner.location %></p>
+
 <%= link_to 'Edit', edit_owner_path %> |
 <%= link_to 'Back', owners_path %>

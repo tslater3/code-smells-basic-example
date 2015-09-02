@@ -4,9 +4,7 @@ class OwnersController < ApplicationController
   end
 
   def show
-    onr = nil
-    @onr = Owner.find(params[:id])
-    return @onr if @onr
+    @owner = Owner.find(params[:id])
   end
 
   def update
