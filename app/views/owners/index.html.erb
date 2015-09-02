@@ -2,24 +2,19 @@
 
 <h1>Listing Owners</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @owners.each do |owner| %>
-      <tr>
-        <td><%= link_to 'Show', owner %></td>
-        <td><%= link_to 'Edit', edit_owner_path(owner) %></td>
-        <td><%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<ul>
+  <% @owners.each do |owner| %>
+  <li>
+    <p>First Name: <%= owner.first_name %></p>
+    <p>Last Name: <%= owner.last_name %></p>
+    <p>Age: <%= owner.age %></p>
+    <p>Race: <%= owner.race %></p>
+    <p>Location: <%= owner.location %></p>
+  </li>
+    <%= link_to 'Show', owner %>
+    <%= link_to 'Edit', edit_owner_path(owner) %>
+    <%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</ul>
 
 <%= link_to 'New Owner', new_owner_path %>

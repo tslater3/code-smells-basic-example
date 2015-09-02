@@ -1,13 +1,13 @@
 class OwnersController < ApplicationController
   def index
-    @owners = Owner.all.sort_by{|onr| onr.first_name }
+    @owners = Owner.all.sort_by{:first_name}
   end
 
-  def show
-    @onr = nil
-    @onr = Owner.find(params[:id])
-    return @onr if @onr
-  end
+  # def show
+  #   onr = nil
+  #   @onr = Owner.find(params[:id])
+  #   return @onr if @onr
+  # end
 
   def update
     @owner = Owner.find_by(id: params[:id])

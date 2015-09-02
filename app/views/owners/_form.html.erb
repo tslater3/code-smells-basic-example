@@ -13,7 +13,11 @@
 
   <%= f.label :location %>
   <%= f.text_field :location %>
-
+<br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
   <% if @owner.errors.any? %>
     <div id="error_explanation">
@@ -26,8 +30,3 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
