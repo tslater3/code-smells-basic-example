@@ -43,6 +43,3 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails'
 end
-
-gem 'this_is_not_a_real_Gem '
-
